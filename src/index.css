@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Day Mode — Vibrant Sun-Gold */
+  --bg-base: #FFF3C4;
+  --bg-gradient-from: #FFF3C4;
+  --bg-gradient-via: #FDE68A;
+  --bg-gradient-to: rgba(252, 211, 77, 0.5);
+  --bg-card: #FFFBEB;
+  --bg-card-accent: #FEF08A;
+  --bg-card-alt: #FFFDF5;
+  --border-base: rgba(234, 179, 8, 0.35);
+  --border-strong: #EAB308;
+  --text-primary: #1F1408;
+  --text-secondary: #6B5419;
+  --accent: #F5B700;
+  --accent-bright: #FACC15;
+  --accent-hover: #EAB308;
+  --accent-deep: #D97706;
+  --accent-text: #1F1408;
+  --verified: #2E7D32;
+  --verified-accent: #4ADE80;
+  --danger: #C62828;
+  --danger-accent: #F87171;
+  --shadow-card: 0 2px 12px rgba(245, 183, 0, 0.08);
+  --shadow-elevated: 0 4px 20px rgba(245, 183, 0, 0.12);
+  --watermark-color: rgba(245, 183, 0, 0.07);
+}
+
+.dark {
+  /* Night Mode — Deep Black with Golden Glow */
+  --bg-base: #0D0A04;
+  --bg-gradient-from: #0D0A04;
+  --bg-gradient-via: #16110A;
+  --bg-gradient-to: rgba(245, 183, 0, 0.04);
+  --bg-card: #16110A;
+  --bg-card-accent: #1E1810;
+  --bg-card-alt: #1E1A12;
+  --border-base: rgba(245, 183, 0, 0.15);
+  --border-strong: #3A2E14;
+  --text-primary: #FBF6E6;
+  --text-secondary: #B8A882;
+  --accent: #FACC15;
+  --accent-bright: #F5B700;
+  --accent-hover: #D97706;
+  --accent-deep: #B45309;
+  --accent-text: #120F09;
+  --verified: #4ADE80;
+  --verified-accent: #4ADE80;
+  --danger: #F87171;
+  --danger-accent: #F87171;
+  --shadow-card: 0 2px 12px rgba(245, 183, 0, 0.06);
+  --shadow-elevated: 0 4px 24px rgba(245, 183, 0, 0.08);
+  --watermark-color: rgba(245, 183, 0, 0.06);
+}
+
+.eye-comfort {
+  /* Eye Comfort Mode — Warm Amber Eye Shield */
+  --bg-base: #F7E1A0;
+  --bg-gradient-from: #F7E1A0;
+  --bg-gradient-via: #F3D58D;
+  --bg-gradient-to: rgba(180, 83, 9, 0.15);
+  --bg-card: #FAEBC4;
+  --bg-card-accent: #F5D88A;
+  --bg-card-alt: #FBF0D8;
+  --border-base: rgba(180, 83, 9, 0.25);
+  --border-strong: #B45309;
+  --text-primary: #2A1A08;
+  --text-secondary: #6B4A1A;
+  --accent: #D97706;
+  --accent-bright: #B45309;
+  --accent-hover: #92400E;
+  --accent-deep: #78350F;
+  --accent-text: #FFFDF5;
+  --verified: #2E7D32;
+  --verified-accent: #4ADE80;
+  --danger: #B91C1C;
+  --danger-accent: #EF4444;
+  --shadow-card: 0 2px 12px rgba(180, 83, 9, 0.08);
+  --shadow-elevated: 0 4px 20px rgba(180, 83, 9, 0.12);
+  --watermark-color: rgba(180, 83, 9, 0.06);
+}
+
+html, body, #root {
+  min-height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: 'Kantumruy Pro', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  background: linear-gradient(170deg, var(--bg-gradient-from) 0%, var(--bg-gradient-via) 40%, var(--bg-gradient-to) 100%);
+  background-attachment: fixed;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; opacity: 0.5; }
+
+/* Utility helpers */
+@layer components {
+  .surface {
+    @apply rounded-2xl border transition-all duration-200;
+    background: var(--bg-card);
+    border-color: var(--border-base);
+    box-shadow: var(--shadow-card);
+  }
+  .surface-hover:hover {
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--border-strong);
+  }
+  .surface-alt {
+    @apply rounded-2xl border transition-all duration-200;
+    background: var(--bg-card-alt);
+    border-color: var(--border-base);
+  }
+  .text-pri { color: var(--text-primary); }
+  .text-sec { color: var(--text-secondary); }
+  .text-accent { color: var(--accent); }
+  .text-accent-bright { color: var(--accent-bright); }
+  .bg-accent { background: var(--accent); }
+  .border-accent { border-color: var(--accent); }
+  .btn-gold {
+    @apply px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-200 active:scale-95;
+    background: linear-gradient(135deg, var(--accent-bright), var(--accent-hover));
+    color: var(--accent-text);
+    box-shadow: 0 4px 14px rgba(245, 183, 0, 0.3);
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, var(--accent-bright), var(--accent-deep));
+    box-shadow: 0 6px 20px rgba(245, 183, 0, 0.4);
+  }
+  .dark .btn-gold { color: #120F09; box-shadow: 0 4px 14px rgba(245,183,0,0.2); }
+  .eye-comfort .btn-gold { color: #FFFDF5; box-shadow: 0 4px 14px rgba(180,83,9,0.3); }
+  .btn-ghost {
+    @apply px-4 py-2.5 rounded-xl font-medium text-sm border transition-all duration-200 active:scale-95;
+    background: transparent;
+    border-color: var(--border-base);
+    color: var(--text-primary);
+  }
+  .btn-ghost:hover {
+    background: var(--bg-card-alt);
+    border-color: var(--border-strong);
+  }
+  .pill {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200;
+    background: var(--bg-card-alt);
+    border-color: var(--border-base);
+    color: var(--text-primary);
+  }
+  .input-field:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 183, 0, 0.12);
+  }
+  .input-field::placeholder { color: var(--text-secondary); opacity: 0.5; }
+  .tab-active { color: var(--accent); }
+  .tab-inactive { color: var(--text-secondary); }
+  .social-pill {
+    @apply flex items-center gap-2 px-3 py-2.5 rounded-xl border transition-all duration-200;
+  }
+  .social-pill:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* QR placeholder pattern */
+.qr-placeholder {
+  background-image:
+    linear-gradient(var(--text-primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.15;
+}
+
+/* Watermark diagonal — for cards */
+.watermark-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 60px,
+    var(--watermark-color) 60px,
+    var(--watermark-color) 120px
+  );
+}
+
+/* Watermark text overlay — for portraits */
+.watermark-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+.watermark-text span {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  color: var(--text-primary);
+  opacity: 0.12;
+  transform: rotate(-35deg);
+  text-transform: uppercase;
+}
+
+/* Smooth theme transition */
+* { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease, box-shadow 0.2s ease; }
+
+/* No transition for transform-based animations */
+.animate-slide-up, .animate-scale-in, .animate-fade-in, .animate-fade-out { transition: none; }
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
