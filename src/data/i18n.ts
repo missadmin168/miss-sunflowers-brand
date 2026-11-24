@@ -288,7 +288,6 @@ export const dict = {
     displayMode: 'Display Mode',
     systemMode: 'System',
     lightMode: 'Light',
-    nightMode: 'Night',
     eyeComfort: 'Eye Comfort',
     eyeComfortDesc: 'Warm tint, reduces harsh glare',
     about: 'About',
